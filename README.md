@@ -1,6 +1,8 @@
-# WorkNotes
+**# WorkNotes**
 My Daily Notes | 记录学习日常
+
 ##CRISPR部分
+
 **在草图序列中找出CRISPR后，判断是否完整（有无截断）**
 
 预测CRISPR,顺带截取前后两端100bp
@@ -12,13 +14,13 @@ done
 ```
   结果示例
 ```
-\# Array family : I-E [Matched known repeat from this family],   
+# Array family : I-E [Matched known repeat from this family],   
 
   
  
   
     Position      Repeat     %id  Spacer  Repeat_Sequence                 Spacer_Sequence                         Insertion/Deletion
-  \==========      ======  ======  ======  =============================   ================================        ==================
+  ==========      ======  ======  ======  =============================   ================================        ==================
      1104349          29   100.0      32  .............................   TTGTGCGAACCTCAGTTATTGTGCCCTGACGA        
      1104410          29   100.0      32  .............................   AATTTATTCGGTTTATTCCGTCGGCGCGCGAC        
      1104471          29   100.0      32  .............................   GGGATTTGCACTCCAGTTGATTGACCCGCAGC        
@@ -36,11 +38,11 @@ done
      1105202          29   100.0      32  .............................   AATCTATTGTGAATTTGAAATGGTCCAGCACT        
      1105263          29   100.0      32  .............................   GGTAAAAACACGGTCTGAACCGACATTCATGT        
      1105324          29    93.1       0  ...........AT................   |                                       
-  \==========      ======  ======  ======  =============================   ================================        ==================
+  ==========      ======  ======  ======  =============================   ================================        ==================
           17          29    99.6      32  GTGTTCCCCGCGCCAGCGGGGATAAACCG                                                  
   
-  \# Left flank :   ATAAGTTATCCGTTCTTTAAAAATAAGGAAATGTTTTAATTTAGTTGGTAGATTGTTGATGCGGAATAAATTTGTTTAAAAACAGTTATGTATGCTTAGT
-  \# Right flank :  GGCGCACTGGATGCGATGATGGATATCACTTAGAATTCCCCGCCCCTGCGGTAGAACTCCCAGCTCCCATTTTCAAACCCATCAAGACGCCTTCGCCAGC
+  # Left flank :   ATAAGTTATCCGTTCTTTAAAAATAAGGAAATGTTTTAATTTAGTTGGTAGATTGTTGATGCGGAATAAATTTGTTTAAAAACAGTTATGTATGCTTAGT
+  # Right flank :  GGCGCACTGGATGCGATGATGGATATCACTTAGAATTCCCCGCCCCTGCGGTAGAACTCCCAGCTCCCATTTTCAAACCCATCAAGACGCCTTCGCCAGC
 ```
 使用awk截取每个菌株CRISPR结果中的两端100bp
 ```
@@ -50,7 +52,7 @@ awk '/^# .*?t flank/ { print FILENAME,$0}' $input >> start_end
 done
 ```
   结果示例
-
+```
 ST003.fasta # Left flank :   ATAAGTTAGACGTTCTTTAAAAATAAGGAAATGTTTGAATTTAGTTGGTAGATTGTTGATGTGGAATAAATTTGTTTAAAAACAGATATGTATGCTTAGT
 ST003.fasta # Right flank :  GGCGCACTGGATGCGATGATGGATATCACTTAGAATTCCCCGCCCTTGCGGTAGAACTCCCAGCTCCCATTTTCAAACCCATCAAGACGCCTTCGCCAGC
 ST003.fasta # Left flank :   GCTCTTTAACATAATGGATGTGTTGTTTGTGTGATACTATAAAGTTGGTAGATTGTGACTGGCTTAAAAAATCATTAATTAATAATAGGTTATGTTTACA
