@@ -1,7 +1,7 @@
 # WorkNotes
 My Daily Notes | 记录学习日常
 
-##CRISPR部分
+## CRISPR部分
 
 **在草图序列中找出CRISPR后，判断是否完整（有无截断）**
 
