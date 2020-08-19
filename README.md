@@ -92,22 +92,30 @@ done
 以防 万一  
 醒来你已离去**
 
-
+----------------------------------------------------------------------------------------------------------------------------------------
 ## 统计测序深度
 
 ### 一 将cleandata（bam）比对到组装后的序列(fasta)上去，生产比对后的bam文件  
 (fastq格式或二代测序查文档前半部分，有比对和排序的操作)  
+```
 #pbmm2 align 参考序列 去除低质量值后的cleandata 输出文件  
 pbmm2 align ST1024.fasta cleandata.bam ST1024_align.bam  
+```
 ### 二 排序   
-#@ 10为10个线程  
+```
+# -@ 10为10个线程  
 samtools sort -o ST1024_align_sorted.bam ST1024_align.bam -@ 10  
+```
 ### 三 统计每个位点的测序深度  
+```
 samtools depth ST1024_align_sorted.bam -a > st1024.depth  
+```
 ### 四 平均测序深度  
-awk ‘{x+=$3} END {print x/NR}’ st1024.depth  
-注：* samtools stats xx.bam可以对比对后的bam进行全面的统计。（像map了百分之多少，等） 
-    *  BAMStas软件  
+```
+awk ‘{x+=$3} END {print x/NR}’ st1024.depth   
+```
+注：* samtools stats xx.bam可以对比对后的bam进行全面的统计。（像map了百分之多少，等）   
+    *  BAMStas软件      
        BAMStats是一款从BAM文件中计算覆盖度和其他数据，并生成这些数据的描述性统计的工具（很多漂亮图片）  
 
 
