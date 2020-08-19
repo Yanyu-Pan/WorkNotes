@@ -115,8 +115,8 @@ samtools depth ST1024_align_sorted.bam -a > st1024.depth
 ```
 awk ‘{x+=$3} END {print x/NR}’ st1024.depth   
 ```
-注：* samtools stats xx.bam可以对比对后的bam进行全面的统计。（像map了百分之多少，等）   
-    *  BAMStas软件      
+注： * samtools stats xx.bam可以对比对后的bam进行全面的统计。（像map了百分之多少，等）   
+     * BAMStas软件      
        BAMStats是一款从BAM文件中计算覆盖度和其他数据，并生成这些数据的描述性统计的工具（很多漂亮图片）  
 
 
